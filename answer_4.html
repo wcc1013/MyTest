@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>for,for in 区别</title>
+		<script type="text/javascript">
+			var arr=[1,5,7,3,8];
+			var person={name:"孙悟空",age:30};
+			
+			//for 一般用于循环数组等
+			for(var i=0;i<arr.length; i++){
+				console.log(arr[i]);
+			}
+			
+			//for in 一般用于对象中属性遍历
+			for(var n in person){
+				console.log("遍历属性："+n);
+				console.log("遍历属性值："+person[n]);
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>对象和数组的使用</title>
+		<script type="text/javascript">
+			var student=new Object();
+			var score=[89,65,99];
+			student.chiness_score=score[0];
+			student.math_score=score[1];
+			student.english_score=score[2];
+			console.log(student);
+			//两种不同写法 ，之前有掉.log没写导致打印报错
+			console.log("该学生语文成绩："+student['chiness_score']);
+			console.log("该学生语文成绩："+student.chiness_score);
+			console.log("该学生数学成绩："+student.math_score);
+ 		    console.log("该学生英语成绩："+student.english_score);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

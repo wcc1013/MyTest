@@ -3,54 +3,50 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>js实现一个省市级联</title>
-		<script type="text/javascript">  
-		    var cityList=new Array();//构建城市列表,城市太多,这里只简单写几个  
-		    cityList["北京市"]=['海淀区','朝阳区','密云区'];  
-		    cityList["上海市"]=['徐汇区','黄埔区','虹口区'];  
-		    cityList["吉林省"]=['长春市','吉林市','四平市'];  
-		      
-		    function allprovince(){  
-		        //获取省的select对象  
-		        var province=document.getElementById("province");  
-		        for (var i in cityList){  
-		            province.add(new Option(i,i),null);  
-		            }  
-		        }  
-		          
-		          
-		    //根据省份加载对应的城市  
-		    function loadCity(){  
-		          
-		            //获取省份的值  
-		            var province=document.getElementById("province").value;  
-		            //获取城市的对象  
-		            var city=document.getElementById("city");  
+		<script type="text/javascript"> 
+			var provinceCity=new Array();
+			provinceCity["广东省"]=["深圳市","广州市","珠海市"];
+			provinceCity["浙江省"]=["杭州市","金华市"];
+			
+			function getProvince(){
+				var province=document.getElementById("province");
+				console.log(province);
+				for(var i in provinceCity){
+					province.add(new Option(i,i),null); 
+				}
+				
+			}
+			
+			function MappingCity(){
+				var province=document.getElementById("province").value;
+				console.log(province);
+				var city=document.getElementById("city");
+				 //清空上一次选择省份显示的城市  
+		        city.options.length=0;  
 		              
-		            //清空上一次选择省份显示的城市  
-		            city.options.length=0;  
-		              
-		            for(var i in cityList){  
-		                //让其对应  
-		                if(i==province){  
-		                    for(var j in cityList[i]){  
-		                        city.add(new Option(cityList[i][j],cityList[i][j]),null);  
-		                        }  
-		                    }  
+		        for(var i in provinceCity){  
+		            //让其对应  
+		            if(i==province){  
+		                for(var j in provinceCity[i]){  
+		                    city.add(new Option(provinceCity[i][j],provinceCity[i][j]),null);  
 		                }  
 		            }  
-		    window.onload=allprovince;  
+		        }  
+		    }  
+		    window.onload=getProvince;  
 		</script>  
 	</head>
 	
 	<body>
-		省份选择:
-		<select id="province" onChange="loadCity();">  
-			<option>请选择省份</option>  
-		</select>  
-		  
-		城市选择:
-		<select id="city">  
-			<option>请选择城市</option>  
-		</select>  
+		您所在的省份：
+		<select id="province" onchange="MappingCity()">
+			<option>选择省份</option>
+		</select>
+		
+		您所在的市区：
+		<select id="city">
+			<option>选择市区</option>
+		</select>
+		
 	</body>
 </html>

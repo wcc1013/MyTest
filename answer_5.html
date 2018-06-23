@@ -2,32 +2,60 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>动态的导航菜单</title>
-		<script type="text/javascript">
-			$(function(){
-				
-			});
-		</script>
-		<style>
-			ul li{float: left; width: 10%;}
-			dl{display: none;}
+		<title>动态导航菜单 and 鼠标悬浮展开下拉，移除隐藏的效果</title>
+		<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+		<style type="text/css">
+			.nav{width: 100%; height: 70px; background-color: gray; text-align: center;}
+			.nav ul li{float: left; width: 10%; list-style: none;}
+			.nav ul li a{color: #fff; font-size: 16px; line-height: 70px;}
+			a:link{text-decoration: none;}
+			dl{background: #f2f2f2; margin-top: 0;}
+			dl dd{width: 50%; margin: auto;}
+			.nav ul li dl dd a{color: #333; font-size: 14px; line-height: 40px;}
 		</style>
 		
 	</head>
 	<body>
 	    <div class="nav">
 	     	<ul>
-	     		<li><a href="#">文档</a></li>
-	     		<li>
+	     		<li class="select" shops="1" onmouseover="openNav(this)" onmouseleave="closeNav(this)">
+	     			<a href="#">文档</a>
+	     			<dl id="list_1" style="display:none;">
+	     				<dd><a href="#">demo1</a></dd>
+	     				<dd><a href="#">demo2</a></dd>
+	     				<dd><a href="#">demo3</a></dd>
+	     			</dl>
+	     		
+	     		</li>
+	     		<li shops="2" onmouseover="openNav(this)" onmouseleave="closeNav(this)">
 	     			<a href="#">示例</a>
-	     			<dl>
+	     			<dl id="list_2" style="display:none;">
 	     				<dd><a href="#">example1</a></dd>
 	     				<dd><a href="#">example2</a></dd>
 	     				<dd><a href="#">example3</a></dd>
 	     			</dl>
 	     		</li>
-	     		<li><a href="#">社区</a></li>
+	     		<li shops="3" onmouseover="openNav(this)" onmouseleave="closeNav(this)">
+	     			<a href="#">周边</a>
+	     			<dl id="list_3" style="display:none;">
+	     				<dd><a href="#">即时聊天</a></dd>
+	     				<dd><a href="#">社区模板</a></dd>
+	     				<dd><a href="#">独立组件</a></dd>
+	     			</dl>
+	     		</li>
 	     	</ul>
 	    </div>
+	    <script type="text/javascript">
+					function openNav(thisLi){
+						$('dl').hide();
+						$('#list_'+($(thisLi).attr('shops'))).show();
+					}
+					
+					function closeNav(thisLi){
+						$('dl').hide();
+						$('#list_'+($(thisLi).attr('shops'))).hide();
+					}
+					
+		</script>
 	</body>
 </html>

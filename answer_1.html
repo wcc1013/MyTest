@@ -24,8 +24,41 @@
 					arr.push(num);
 				}
 			}
-			console.log("数组内升序输出："+arr.sort());
-			console.log("数组内降序输出："+arr.reverse());
+		
+//		    //简写   不了  得放到for循环外面存储 
+//			while(arr.length<10){
+//				var num=randomNum();
+//				for(var i=0;i<arr.length;i++){
+//					if(num!=arr[i]){
+//						arr.push(num);
+//					}else{
+//						break;
+//					}
+//				}
+//			}
+   		   //升序 不可用 arr.sort()
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr.length-i;j++){
+					if(arr[j]>arr[j+1]){
+		                var temp=arr[j];
+		                arr[j]=arr[j+1];
+		                arr[j+1]=temp;
+		            }
+				}
+			}
+			console.log("数组内升序输出："+arr);
+
+ 		   //降序 不可用 arr.reverse()
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr.length-i;j++){
+					if(arr[j]<arr[j+1]){
+		                var temp=arr[j];
+		                arr[j]=arr[j+1];
+		                arr[j+1]=temp;
+		            }
+				}
+			}
+			console.log("数组内降序输出："+arr);
 		</script>
 	</head>
 	<body>

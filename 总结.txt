@@ -1,0 +1,22 @@
+1、随机数获取：Math.floor(Math.random()*1000);
+
+2、冒泡排序：
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr.length-i;j++){
+					if(arr[j]>arr[j+1]){
+		                var temp=arr[j];
+		                arr[j]=arr[j+1];
+		                arr[j+1]=temp;
+		            }
+				}
+			}
+			console.log("数组内升序输出："+arr);
+			
+3、console后的.log不可以再忘写了
+
+4、获取对象属性值：（1）student.name  student['name']
+
+5、a标签去除下划线：a:link{text-decoration:none;}
+
+6、ul li去除前面的圆点 ：ul li{list-style:none;}
+
